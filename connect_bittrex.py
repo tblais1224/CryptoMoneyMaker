@@ -47,14 +47,14 @@ while True:
                 break
             prev_sma = sma
 
-    if buy == True and sell == False and buying_power > 2 :
-        holding += buying_power * 0.5
-        buying_power -= buying_power * 0.5
+    if buy == True and sell == False and holding == 0 :
+        holding += buying_power 
+        buying_power -= buying_power 
         prev_buy_price = bid_ask_avg
-    else:
+    elif buy == False and sell == True:
         percent_change_price = bid_ask_avg / prev_buy_price
         buying_power += holding * percent_change_price
         holding = 0
 
     print("bid ask avg {}, buy {}, sell {}, holding {},  buy_power {}\n".format(bid_ask_avg, buy, sell, holding, buying_power))
-    time.sleep(60.0 - ((time.time() - starttime) % 60.0))
+    time.sleep(5.0 - ((time.time() - starttime) % 5.0))
