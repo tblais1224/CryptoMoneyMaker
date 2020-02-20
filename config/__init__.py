@@ -1,1 +1,1 @@
-__all__ = ["bittrex"]
+__all__ = ['bittrex', 'binance']

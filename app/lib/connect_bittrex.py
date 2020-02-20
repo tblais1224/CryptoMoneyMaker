@@ -1,9 +1,9 @@
 import numpy as np
 import json
+import time
 from config.bittrex import BITTREX
 from app.lib.moving_average import MovingAverage
 from bittrex.bittrex import Bittrex
-import time
 
 
 buying_power = 1000
