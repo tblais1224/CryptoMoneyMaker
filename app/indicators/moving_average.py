@@ -6,17 +6,22 @@ class MovingAverage(object):
         self.price_data = price_data
 
     def sma(self, range):
-        if self.__check_data_range(range) == 0: return
-        return np.sum(self.price_data[len(self.price_data) - range:])/range
+        if self.__check_data_length(range) == 0:
+            return
+        return np.sum(self.price_data[len(self.price_data) - range:]) / range
 
-    def ema(self, range):
-        pass
+    def ema(self, range, prev_ema=None):
+        if self.__check_data_length(range + 1) == 0:
+            return
+        multiplier = 2 / (range + 1)
+        if prev_ema is None:
+            prev_ema = self.sma(range)
+        return self.price_data[-1] * multiplier + prev_ema * (1 - multiplier)
 
-    def __check_data_range(self, range):
+    def __check_data_length(self, length):
         if range > len(self.price_data):
             print('Not enough data given for this range.')
             return 0
-
 
 
 # def moving_average_list(values, window):
