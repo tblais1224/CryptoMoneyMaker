@@ -1,4 +1,6 @@
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from matplotlib import style
 # import pandas as pd
 
 # print(moving_average_test(btc_close_prices, 55))
