@@ -1,1 +1,1 @@
-__all__ = ['bittrex', 'binance']
+from .config_info import *
