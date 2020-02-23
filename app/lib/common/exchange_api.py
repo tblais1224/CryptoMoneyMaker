@@ -12,7 +12,9 @@ class Api(object):
         self.key = config_info.API[exchange]['api_key']
         self.secret = config_info.API[exchange]['api_secret']
 
-    def get_market_price(self, market):
+    def get_market_price(self, market=None):
+        if market is None:
+            return requests.get(f'{self.api_path}/api/v3/ticker/bookTicker').json()
         params = {
             'symbol': market
         }
