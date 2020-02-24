@@ -3,7 +3,7 @@ from app.data import markets
 import sys, time, signal
 sys.path.append('/home/tom/Documents/CodingProjects/CryptoBot')
 
-time_interval = 5.0
+time_interval = 5
 
 loop_count = 0
 run = True
@@ -19,8 +19,12 @@ def signal_handler(signal, frame):
 signal.signal(signal.SIGINT, signal_handler)
 
 # check current wallet and set values in markets
+# TODO: call binance and check wallet, set values for all coins
 buying_power_coin = 'USDT'
 buying_power_amount = 1000
+
+print(db.get_coin_amount(buying_power_coin))
+# db.update_wallet(buying_power_amount, buying_power_coin, None)
 
 while run:
     loop_count += 1
@@ -34,10 +38,10 @@ while run:
             bid_ask_avg = (bid+ask)/2
             markets.MARKETS['last_price'] = bid_ask_avg
 
-            strategy_check = multi_ema(symbol, bid_ask_avg).buy_or_sell()
-            if strategy_check == 'buy':
+            # strategy_check = multi_ema(symbol, bid_ask_avg).buy_or_sell()
+            # if strategy_check == 'buy':
                 
-            elif strategy_check == 'sell':
+            # elif strategy_check == 'sell':
 
             db.add_price(symbol, bid_ask_avg, bid, ask)
             print(f'market: {symbol}, bid ask avg: {bid_ask_avg}, bid: {bid}, ask: {ask}')
