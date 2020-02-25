@@ -1,5 +1,23 @@
-# import matplotlib.pyplot as plt
-# import pandas as pd
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from matplotlib import style
+
+
+class live_chart(object):
+    def __init__(self, market):
+        self.market = market
+
+    
+
+
+
+style.use('fivethirtyeight')
+
+fig = plt.figure()
+ax1 = fig.add_subplot(1,1,1)
+
+
+
 
 # print(moving_average_test(btc_close_prices, 55))
 
