@@ -1,6 +1,11 @@
 import mysql.connector
 from datetime import datetime
 from config.config_info import DB
+from decimal import Decimal
+from app.data.markets import MARKETS
+
+
+TABLES = ['wallet', 'price', 'indicator', 'order_history']
 
 
 class Db(object):
@@ -26,9 +31,10 @@ class Db(object):
             print('last insert id not found')
             return 0
 
-    def make_order(self, order_type, price, market, amount, purchase_coin='USDT', strategy=None):
+    def make_order(self, order_type, price, market, amount, purchase_coin='USDT', strategy='Multi EMA'):
         coin_purchased = market.replace(purchase_coin, '')
-        query = 'INSERT INTO order_history (type, price, market, amount, strategy) VALUES (%s, %s, %s, %s, %s);'
+        query = (
+            'INSERT INTO order_history (type, price, market, amount, strategy) VALUES (%s, %s, %s, %s, %s);')
         args = (order_type, price, market, amount, strategy)
         self.client.execute(query, args)
         transaction_id = self.client.lastrowid
@@ -52,9 +58,9 @@ class Db(object):
         return self.client.execute(f"SELECT price, bid, ask, market, date FROM price WHERE market = '{market}' ORDER BY date DESC LIMIT {range};")
 
     def get_coin_amount(self, coin):
-        query = 'SELECT amount FROM wallet WHERE coin = %s ORDER BY date DESC LIMIT 1;'
-        args = (coin)
-        self.client.execute(query, args)
+        query = (
+            f'SELECT amount FROM wallet WHERE coin = "{coin}" ORDER BY date DESC LIMIT 1;')
+        self.client.execute(query)
         result = self.client.fetchone()
         if result:
             print('Wallet lookup successful')
@@ -65,10 +71,23 @@ class Db(object):
             return 0
 
     def get_wallet(self):
-        return self.client(f'SELECT amount, coin, date FROM wallet WHERE date IN (SELECT MAX(date) FROM wallet GROUP BY coin)')
+        query = (
+            'SELECT amount, coin, date FROM wallet WHERE date IN (SELECT MAX(date) FROM wallet GROUP BY coin)')
+        self.client.execute(query)
+        result = self.client.fetchall()
+        if result:
+            for coin_data in result:
+                print(
+                    f'Holding: {coin_data[0]} of {coin_data[1]}, as of {coin_data[2]}.')
+            self.mysqldb.commit()
+            return result
+        else:
+            print('Wallet lookup failed')
+            return 0
 
     def update_wallet(self, total_change, coin, transaction_id):
-        new_ammount = self.get_coin_amount(coin) + total_change
+        new_ammount = Decimal(self.get_coin_amount(coin)[
+                              0]) + Decimal(total_change)
         query = (
             'INSERT INTO wallet (amount, coin, transaction_id) VALUES (%s, %s, %s);')
         args = (new_ammount, coin, transaction_id)
@@ -81,7 +100,37 @@ class Db(object):
             print('wallet update failed')
             return 0
 
-    # def __prepare_db(self):
+    def clear_table(self, table):
+        query = (f'TRUNCATE {table};')
+        self.client.execute(query)
+        if self.client.lastrowid:
+            print(f'Removed all data from {table}')
+            self.mysqldb.commit()
+            return 1
+        else:
+            print('Failed to clear table')
+            return 0
+
+    def prep_db(self, buying_power, purchase_coin='USDT'):
+        for table in TABLES:
+            self.clear_table(table)
+        query = (
+            'INSERT INTO wallet (amount, coin, transaction_id) VALUES (%s, %s, %s);')
+        for market in MARKETS:
+            args = (0.0, market.replace(purchase_coin, ''), None)
+            self.client.execute(query, args)
+        args = (buying_power, purchase_coin, None)
+        self.client.execute(query, args)
+        if self.client.lastrowid:
+            print(f'Database ready...')
+            self.get_wallet()
+            print('=================================================\n')
+            self.mysqldb.commit()
+            return 1
+        else:
+            print('Failed prep db')
+            return 0
+
     #     query = ('DROP DATABASE IF EXISTS database_name;')
     #     self.client.execute(query)
     #     self.mysqldb.commit()
@@ -90,5 +139,3 @@ class Db(object):
     #     query = ('SOURCE /home/tom/Documents/CodingProjects/CryptoBot/app/data/crypto_bot_db_backup.sql;')
     #     self.client.execute(query)
     #     self.mysqldb.commit()
-
-
