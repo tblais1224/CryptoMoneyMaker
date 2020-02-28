@@ -23,13 +23,13 @@ class Api(object):
         }
         return requests.get(f'{self.api_path}/api/v3/ticker/bookTicker', params=params).json()
 
-    def get_market_history(self, market):
-        params = {
-            'symbol': market
-        }
-        response = requests.request("GET", url, headers=headers, data = payload)
+    # def get_market_history(self, market):
+    #     params = {
+    #         'symbol': market
+    #     }
+    #     response = requests.request("GET", url, headers=headers, data = payload)
 
-        print(response.text.encode('utf8'))
+    #     print(response.text.encode('utf8'))
         # return requests.get('{self.api_path}/api/v3/ticker/bookTicker', params=params).json()
 
         # params = {

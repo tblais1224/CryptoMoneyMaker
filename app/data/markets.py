@@ -4,14 +4,14 @@ MARKETS = {
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': False
+        'trade': True
     },
     'ETHUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': False
+        'trade': True
     },
     'XRPUSDT': {
         'last_price': 0,
@@ -32,7 +32,7 @@ MARKETS = {
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': False
+        'trade': True
     },
     'EOSUSDT': {
         'last_price': 0,
