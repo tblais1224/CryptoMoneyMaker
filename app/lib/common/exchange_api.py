@@ -11,6 +11,9 @@ class Api(object):
         self.api_path = config_info.API[exchange]['base_endpoint']
         self.key = config_info.API[exchange]['api_key']
         self.secret = config_info.API[exchange]['api_secret']
+        self.url = ""
+        self.payload = {}
+        self.headers= {}
 
     def get_market_price(self, market=None):
         if market is None:
@@ -20,6 +23,14 @@ class Api(object):
         }
         return requests.get(f'{self.api_path}/api/v3/ticker/bookTicker', params=params).json()
 
+    def get_market_history(self, market):
+        params = {
+            'symbol': market
+        }
+        response = requests.request("GET", url, headers=headers, data = payload)
+
+        print(response.text.encode('utf8'))
+        # return requests.get('{self.api_path}/api/v3/ticker/bookTicker', params=params).json()
 
         # params = {
         #     'symbol': 'LTCUSDT'

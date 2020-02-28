@@ -4,49 +4,49 @@ MARKETS = {
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'ETHUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'XRPUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'BCHUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'LTCUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'EOSUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'BNBUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'XTZUSDT': {
         'last_price': 0,
@@ -81,14 +81,14 @@ MARKETS = {
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'ETCUSDT': {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
         'holding_amount': 0,
-        'trade': True
+        'trade': False
     },
     'ZECUSDT': {
         'last_price': 0,
@@ -108,8 +108,8 @@ MARKETS = {
         'last_price': 0,
         'last_indicator': {},
         'buy/sell': 'sell',
-        'holding_amount': 0,
-        'trade': True
+        'holding_amFalseount': 0,
+        'trade': False
     },
     'LINKUSDT': {
         'last_price': 0,
