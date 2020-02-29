@@ -1,9 +1,10 @@
 import numpy as np
-from indicators import MovingAverage
+from app.lib.indicators.moving_average import MovingAverage
+
 
 class MultiEma(MovingAverage):
     def buy(self, parameter_list):
-      pass
+        pass
 
 
 # def moving_average_list(values, window):

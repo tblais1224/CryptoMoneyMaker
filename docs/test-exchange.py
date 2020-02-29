@@ -1,6 +1,6 @@
 import requests
 import time
-from config.config_info import API
+import API
 
 # must be in milli s
 timestamp = time.time() * 1000

@@ -1,8 +1,8 @@
 import mysql.connector
 from datetime import datetime
 from decimal import Decimal
-import DB
-import MARKETS
+from config.config_info import DB
+from app.data.markets import MARKETS
 
 
 TABLES = ['wallet', 'price', 'indicator', 'order_history']
@@ -24,7 +24,6 @@ class Db(object):
         args = (price, market, bid, ask)
         self.client.execute(query, args)
         if self.client.lastrowid:
-            print('last insert id', self.client.lastrowid)
             self.mysqldb.commit()
             return 1
         else:
@@ -57,9 +56,11 @@ class Db(object):
         if detailed:
             table_headers += ', bid, ask, market, date'
         if from_date:
-            query = (f"SELECT {table_headers} FROM price WHERE market = '{market}' AND date >= {from_date} AND date <= {to_date} ORDER BY date DESC;")
+            query = (
+                f"SELECT {table_headers} FROM price WHERE market = '{market}' AND date >= {from_date} AND date <= {to_date} ORDER BY date DESC;")
         else:
-            query = (f"SELECT {table_headers} FROM price WHERE market = '{market}' ORDER BY date DESC LIMIT {range};")
+            query = (
+                f"SELECT {table_headers} FROM price WHERE market = '{market}' ORDER BY date DESC LIMIT {range};")
         self.client.execute(query)
         result = self.client.fetchall()
         if result:
@@ -115,13 +116,8 @@ class Db(object):
     def clear_table(self, table):
         query = (f'TRUNCATE {table};')
         self.client.execute(query)
-        if self.client.lastrowid:
-            print(f'Removed all data from {table}')
-            self.mysqldb.commit()
-            return 1
-        else:
-            print('Failed to clear table')
-            return 0
+        print(f'Removed all data from {table}')
+        self.mysqldb.commit()
 
     def prep_db(self, buying_power, purchase_coin='USDT'):
         for table in TABLES:
@@ -142,12 +138,3 @@ class Db(object):
         else:
             print('Failed prep db')
             return 0
-
-    #     query = ('DROP DATABASE IF EXISTS database_name;')
-    #     self.client.execute(query)
-    #     self.mysqldb.commit()
-    #     self.client.close()
-    #     self.
-    #     query = ('SOURCE /home/tom/Documents/CodingProjects/CryptoBot/app/data/crypto_bot_db_backup.sql;')
-    #     self.client.execute(query)
-    #     self.mysqldb.commit()

@@ -8,7 +8,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': True
@@ -20,7 +20,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -32,7 +32,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -44,7 +44,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -56,7 +56,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -68,7 +68,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -80,7 +80,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -92,7 +92,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -104,7 +104,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -116,7 +116,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -128,7 +128,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -140,7 +140,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -152,7 +152,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -164,7 +164,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -176,7 +176,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
@@ -188,7 +188,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amFalseount': 0.0,
         'trade': False
@@ -200,7 +200,7 @@ MARKETS = {
             'ema_13': 0.0,
             'ema_21': 0.0,
             'ema_55': 0.0
-            },
+        },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
         'trade': False
