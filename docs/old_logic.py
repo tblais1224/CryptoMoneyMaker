@@ -121,3 +121,11 @@ while True:
 
     prev_btc_price = bid_ask_avg
     time.sleep(5.0 - ((time.time() - starttime) % 5.0))
+
+
+
+
+def moving_average_list(values, window):
+    weights = np.repeat(1.0, window)/window
+    smas = np.convolve(values,weights,'valid')
+    return smas

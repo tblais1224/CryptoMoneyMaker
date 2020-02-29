@@ -1,8 +1,8 @@
 import mysql.connector
 from datetime import datetime
-from config.config_info import DB
 from decimal import Decimal
-from app.data.markets import MARKETS
+import DB
+import MARKETS
 
 
 TABLES = ['wallet', 'price', 'indicator', 'order_history']
@@ -52,10 +52,22 @@ class Db(object):
             self.update_wallet(amount * price, purchase_coin, transaction_id)
             self.update_wallet(0 - amount, coin_purchased, transaction_id)
 
-    def get_price_history(self, market, range=1, from_date=None, to_date=datetime.now()):
+    def get_price_history(self, market, range=1, from_date=None, to_date=datetime.now(), detailed=False):
+        table_headers = 'price'
+        if detailed:
+            table_headers += ', bid, ask, market, date'
         if from_date:
-            return self.client.execute(f"SELECT price, bid, ask, market, date FROM price WHERE market = '{market}' AND date >= {from_date} AND date <= {to_date} ORDER BY date DESC;")
-        return self.client.execute(f"SELECT price, bid, ask, market, date FROM price WHERE market = '{market}' ORDER BY date DESC LIMIT {range};")
+            query = (f"SELECT {table_headers} FROM price WHERE market = '{market}' AND date >= {from_date} AND date <= {to_date} ORDER BY date DESC;")
+        else:
+            query = (f"SELECT {table_headers} FROM price WHERE market = '{market}' ORDER BY date DESC LIMIT {range};")
+        self.client.execute(query)
+        result = self.client.fetchall()
+        if result:
+            self.mysqldb.commit()
+            return result
+        else:
+            print('Failed to gather price history')
+            return 0
 
     def get_coin_amount(self, coin):
         query = (

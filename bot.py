@@ -1,5 +1,5 @@
-from app.lib.common import exchange_api, mysql, graphing
-from app.data.markets import MARKETS
+import exchange_api, mysql, graphing
+import MARKETS
 import sys, time, signal
 sys.path.append('/home/tom/Documents/CodingProjects/CryptoBot')
 
@@ -9,7 +9,7 @@ loop_count = 0
 run = True
 
 api = exchange_api.Api('binance')
-db = mysql.Db('crypto_bot')
+db = Db('crypto_bot')
 
 def signal_handler(signal, frame):
     global run
