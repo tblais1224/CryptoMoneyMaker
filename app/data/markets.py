@@ -11,6 +11,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': True
     },
     'ETHUSDT': {
@@ -23,7 +24,8 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     },
     'XRPUSDT': {
         'last_price': 0.0,
@@ -35,7 +37,8 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     },
     'BCHUSDT': {
         'last_price': 0.0,
@@ -47,7 +50,8 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     },
     'LTCUSDT': {
         'last_price': 0.0,
@@ -59,7 +63,8 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     },
     'EOSUSDT': {
         'last_price': 0.0,
@@ -71,6 +76,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'BNBUSDT': {
@@ -83,7 +89,8 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     },
     'XTZUSDT': {
         'last_price': 0.0,
@@ -95,6 +102,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'ADAUSDT': {
@@ -107,6 +115,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'XMRUSDT': {
@@ -119,6 +128,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'XLMUSDT': {
@@ -131,6 +141,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'TRXUSDT': {
@@ -143,6 +154,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'ETCUSDT': {
@@ -155,6 +167,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'ZECUSDT': {
@@ -167,6 +180,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'NEOUSDT': {
@@ -179,6 +193,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'DASHUSDT': {
@@ -190,7 +205,8 @@ MARKETS = {
             'ema_55': 0.0
         },
         'buy/sell': 'sell',
-        'holding_amFalseount': 0.0,
+        'holding_amount': 0.0,
+        'buy_price': 0.0,
         'trade': False
     },
     'LINKUSDT': {
@@ -203,6 +219,7 @@ MARKETS = {
         },
         'buy/sell': 'sell',
         'holding_amount': 0.0,
-        'trade': False
+        'buy_price': 0.0,
+        'trade': True
     }
 }
